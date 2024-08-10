@@ -1,0 +1,206 @@
+\hypertarget{serveur_8cpp}{\section{serv/serveur.cpp File Reference}
+\label{serveur_8cpp}\index{serv/serveur.\-cpp@{serv/serveur.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}serveur.\-hpp\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{serveur_8cpp_a7df8e803c4e55b5d4320ff251edcd213}{key\-Pressed} ()
+\begin{DoxyCompactList}\small\item\em Read the state of the key (G\-P\-I\-O 228). \end{DoxyCompactList}\item 
+int \hyperlink{serveur_8cpp_a9f4feefe84656d35fdc07fa03810222b}{get\-Light} ()
+\begin{DoxyCompactList}\small\item\em Read the light level from S\-A\-R\-A\-D\-C (Successive Approximation Register A\-D\-C). \end{DoxyCompactList}\item 
+int \hyperlink{serveur_8cpp_a8651f185bf0493d04596cb7c89140e1f}{send\-Entete} (Mat frame, int socket)
+\begin{DoxyCompactList}\small\item\em Send the header of a Mat frame over a socket. \end{DoxyCompactList}\item 
+int \hyperlink{serveur_8cpp_af9b59a8db3638371fb377f766002cdec}{send\-Frame} (Video\-Capture capture, Mat frame, int socket, int flag)
+\begin{DoxyCompactList}\small\item\em Send an image over a socket. \end{DoxyCompactList}\item 
+int \hyperlink{serveur_8cpp_a551bd5ac0b418fc01d7062fef7a7b43d}{sock\-Bind} (int h\-Socket, int p)
+\begin{DoxyCompactList}\small\item\em Bind a socket to a specific port. \end{DoxyCompactList}\item 
+void \hyperlink{serveur_8cpp_a5950f90fdf5f67fab5bae67d2b350de9}{play\-Music} ()
+\begin{DoxyCompactList}\small\item\em Play music based on client messages. Only gets triggered when the button is pressed. \end{DoxyCompactList}\item 
+int \hyperlink{serveur_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function for the server program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{serveur_8cpp_af46837bab1e716fb5d8bd6e0f511a324}{res\-Index} = \hyperlink{client_8hpp_a3783c8ee0abe77aec5a1e4116a68a456}{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{serveur_8cpp_a9f4feefe84656d35fdc07fa03810222b}{\index{serveur.\-cpp@{serveur.\-cpp}!get\-Light@{get\-Light}}
+\index{get\-Light@{get\-Light}!serveur.cpp@{serveur.\-cpp}}
+\subsubsection[{get\-Light}]{\setlength{\rightskip}{0pt plus 5cm}int get\-Light (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{serveur_8cpp_a9f4feefe84656d35fdc07fa03810222b}
+
+
+Read the light level from S\-A\-R\-A\-D\-C (Successive Approximation Register A\-D\-C). 
+
+Get the light intensity value.
+
+\begin{DoxyReturn}{Returns}
+Light level, -\/1 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file serveur.\-cpp.
+
+\hypertarget{serveur_8cpp_a7df8e803c4e55b5d4320ff251edcd213}{\index{serveur.\-cpp@{serveur.\-cpp}!key\-Pressed@{key\-Pressed}}
+\index{key\-Pressed@{key\-Pressed}!serveur.cpp@{serveur.\-cpp}}
+\subsubsection[{key\-Pressed}]{\setlength{\rightskip}{0pt plus 5cm}int key\-Pressed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{serveur_8cpp_a7df8e803c4e55b5d4320ff251edcd213}
+
+
+Read the state of the key (G\-P\-I\-O 228). 
+
+Getif the button is pressed.
+
+\begin{DoxyReturn}{Returns}
+1 if the key is pressed, -\/1 on error, or 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file serveur.\-cpp.
+
+\hypertarget{serveur_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{serveur.\-cpp@{serveur.\-cpp}!main@{main}}
+\index{main@{main}!serveur.cpp@{serveur.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{serveur_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Main function for the server program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command-\/line arguments. \\
+\hline
+{\em argv} & Command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 201 of file serveur.\-cpp.
+
+\hypertarget{serveur_8cpp_a5950f90fdf5f67fab5bae67d2b350de9}{\index{serveur.\-cpp@{serveur.\-cpp}!play\-Music@{play\-Music}}
+\index{play\-Music@{play\-Music}!serveur.cpp@{serveur.\-cpp}}
+\subsubsection[{play\-Music}]{\setlength{\rightskip}{0pt plus 5cm}void play\-Music (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{serveur_8cpp_a5950f90fdf5f67fab5bae67d2b350de9}
+
+
+Play music based on client messages. Only gets triggered when the button is pressed. 
+
+
+
+Definition at line 110 of file serveur.\-cpp.
+
+\hypertarget{serveur_8cpp_a8651f185bf0493d04596cb7c89140e1f}{\index{serveur.\-cpp@{serveur.\-cpp}!send\-Entete@{send\-Entete}}
+\index{send\-Entete@{send\-Entete}!serveur.cpp@{serveur.\-cpp}}
+\subsubsection[{send\-Entete}]{\setlength{\rightskip}{0pt plus 5cm}int send\-Entete (
+\begin{DoxyParamCaption}
+\item[{Mat}]{frame, }
+\item[{int}]{socket}
+\end{DoxyParamCaption}
+)}}\label{serveur_8cpp_a8651f185bf0493d04596cb7c89140e1f}
+
+
+Send the header of a Mat frame over a socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & The Mat frame to send. \\
+\hline
+{\em socket} & The socket for communication. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file serveur.\-cpp.
+
+\hypertarget{serveur_8cpp_af9b59a8db3638371fb377f766002cdec}{\index{serveur.\-cpp@{serveur.\-cpp}!send\-Frame@{send\-Frame}}
+\index{send\-Frame@{send\-Frame}!serveur.cpp@{serveur.\-cpp}}
+\subsubsection[{send\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}int send\-Frame (
+\begin{DoxyParamCaption}
+\item[{Video\-Capture}]{capture, }
+\item[{Mat}]{frame, }
+\item[{int}]{socket, }
+\item[{int}]{flag}
+\end{DoxyParamCaption}
+)}}\label{serveur_8cpp_af9b59a8db3638371fb377f766002cdec}
+
+
+Send an image over a socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em capture} & Video\-Capture object for capturing frames. \\
+\hline
+{\em frame} & The Mat frame to send. \\
+\hline
+{\em socket} & The socket for communication. \\
+\hline
+{\em flag} & Flag indicating whether to send the header. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file serveur.\-cpp.
+
+\hypertarget{serveur_8cpp_a551bd5ac0b418fc01d7062fef7a7b43d}{\index{serveur.\-cpp@{serveur.\-cpp}!sock\-Bind@{sock\-Bind}}
+\index{sock\-Bind@{sock\-Bind}!serveur.cpp@{serveur.\-cpp}}
+\subsubsection[{sock\-Bind}]{\setlength{\rightskip}{0pt plus 5cm}int sock\-Bind (
+\begin{DoxyParamCaption}
+\item[{int}]{h\-Socket, }
+\item[{int}]{p}
+\end{DoxyParamCaption}
+)}}\label{serveur_8cpp_a551bd5ac0b418fc01d7062fef7a7b43d}
+
+
+Bind a socket to a specific port. 
+
+Bind a socket to a specified port.
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\-Socket} & The socket to bind. \\
+\hline
+{\em p} & Port number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file serveur.\-cpp.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{serveur_8cpp_af46837bab1e716fb5d8bd6e0f511a324}{\index{serveur.\-cpp@{serveur.\-cpp}!res\-Index@{res\-Index}}
+\index{res\-Index@{res\-Index}!serveur.cpp@{serveur.\-cpp}}
+\subsubsection[{res\-Index}]{\setlength{\rightskip}{0pt plus 5cm}char res\-Index = {\bf R\-E\-S\-\_\-\-I\-N\-D\-E\-X}}}\label{serveur_8cpp_af46837bab1e716fb5d8bd6e0f511a324}
+
+
+Definition at line 5 of file serveur.\-cpp.
+

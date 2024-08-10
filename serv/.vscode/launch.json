@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+        "name": "GDB debug",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "build/${config:ODROIDC2.PROGRAM}",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "targetArchitecture": "arm64",
+        "preLaunchTask":"odroid-deploy-gdb",
+        "setupCommands": [{
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+        },
+        {
+            "description": "Set sysroot ",
+            "text": "set sysroot /usr/local/opt/poky/2.1.3/sysroots/aarch64-poky-linux/"
+        }],
+        "miDebuggerPath": "/usr/local/opt/poky/2.1.3/sysroots/x86_64-pokysdk-linux/usr/bin/aarch64-poky-linux/aarch64-poky-linux-gdb",
+        "miDebuggerServerAddress": "${config:ODROIDC2.TARGET_IP}:${config:ODROIDC2.TARGET_PORT}",
+    }]
+}
+

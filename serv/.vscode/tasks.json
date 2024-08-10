@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+
+     /* Configure integrated VS Code Terminal */
+     "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+    },
+    "tasks": [
+            /* Configure launch.json (debug) preLaunchTask Task */
+            {
+                "label": "odroid-deploy-gdb",
+                "isBackground": true,
+                "problemMatcher":{
+                    "base": "$gcc",
+                    "background": {
+                        "activeOnStart": true,
+                        "beginsPattern":  "Deploying to target",
+                        "endsPattern":  "Starting GDB Server on Target"
+                    }
+                },
+                "type": "shell",
+                "command": "sh",
+                "args": [
+                    "odroid-deploy-gdb.sh",
+                    "${config:ODROIDC2.TARGET_IP}",
+                    "${config:ODROIDC2.TARGET_PORT}",
+                    "${config:ODROIDC2.PROGRAM}",
+                    "${workspaceFolder}/build/"
+                ]
+            }
+    ]
+}
+

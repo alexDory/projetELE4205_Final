@@ -1,0 +1,387 @@
+\hypertarget{client_8cpp}{\section{client/client.cpp File Reference}
+\label{client_8cpp}\index{client/client.\-cpp@{client/client.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}client.\-hpp\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{client_8cpp_a1cb2db748f2655bceab4f4958cfc6d85}{ctr\-Menu} (int event, int x, int y, int flags, void $\ast$userdata)
+\begin{DoxyCompactList}\small\item\em Callback function for mouse events in the menu. \end{DoxyCompactList}\item 
+void \hyperlink{client_8cpp_a49d307938f0a43f8dfb95c5a1ce082d9}{fen\-Menu} (Mat \&menu\-Image)
+\begin{DoxyCompactList}\small\item\em Display the menu on the given image. \end{DoxyCompactList}\item 
+int \hyperlink{client_8cpp_a8790f86a6e76eaa71b49430bd82f65f6}{Socket\-Connect} (int socket, int port)
+\begin{DoxyCompactList}\small\item\em Connect to a socket. \end{DoxyCompactList}\item 
+void \hyperlink{client_8cpp_aa37fbf46fbe2d0b46c03bae6a4239f2f}{save\-Image\-Lean} (int \hyperlink{client_8hpp_a0b49557e01665bf5143bcd096df8159d}{frame\-\_\-number}, Mat frame, Cascade\-Classifier $\ast$face\-\_\-cascade)
+\begin{DoxyCompactList}\small\item\em Find and save a face. \end{DoxyCompactList}\item 
+void \hyperlink{client_8cpp_a4cd70c2a1211b419e3d1c733866b43da}{save\-Image} (int \hyperlink{client_8hpp_a0b49557e01665bf5143bcd096df8159d}{frame\-\_\-number}, Mat frame, Cascade\-Classifier $\ast$face\-\_\-cascade, Ptr$<$ Face\-Recognizer $>$ modelreco, Ptr$<$ Face\-Recognizer $>$ modelreco2)
+\begin{DoxyCompactList}\small\item\em Find and recognizes a face. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \hyperlink{client_8cpp_a3f87c9bf7410f5d0d56d545f778f0876}{get\-Files\-In\-Directory} (const string \&dir\-Path)
+\begin{DoxyCompactList}\small\item\em Get the list of files in a directory with a specific extension. \end{DoxyCompactList}\item 
+void \hyperlink{client_8cpp_ab4aabfdcc9a54dc707a10e2ecbe19e54}{create\-Database} ()
+\begin{DoxyCompactList}\small\item\em Create a face recognition database and save the trained model. \end{DoxyCompactList}\item 
+void \hyperlink{client_8cpp_acbd312286f9b56e0450bc659cefe965e}{update\-Database} ()
+\begin{DoxyCompactList}\small\item\em Update a face recognition database with new images and save the trained model. \end{DoxyCompactList}\item 
+bool \hyperlink{client_8cpp_ac0f00c2ec898e3f8af78f3999f92d254}{check\-Dir} ()
+\begin{DoxyCompactList}\small\item\em Check if a directory exists. \end{DoxyCompactList}\item 
+void \hyperlink{client_8cpp_adf2674287d0b3b9e8baecefc3e8fafa9}{mkdir} ()
+\begin{DoxyCompactList}\small\item\em Create a new directory. \end{DoxyCompactList}\item 
+int \hyperlink{client_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main function of the client application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{client_8cpp_abbfe42f5a97ddaceac48ca495e1706da}{current\-Resolution\-Index} = \hyperlink{client_8hpp_a3783c8ee0abe77aec5a1e4116a68a456}{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}
+\item 
+int \hyperlink{client_8cpp_ad0f029dc277900ead03a0fcdfbf819e3}{current\-Mode\-Index} = 0
+\item 
+vector$<$ string $>$ \hyperlink{client_8cpp_a75ee5d9f296c93564a3c20537c4c5faf}{person\-Name\-Database}
+\item 
+uint32\-\_\-t \hyperlink{client_8cpp_a56d7c15d0792ee520395d9bf3be98ebb}{res\-\_\-array} = 0
+\item 
+uint32\-\_\-t \hyperlink{client_8cpp_a6b29e4f37f4482274af785ad5ffe96a7}{mode} = 0
+\item 
+int \hyperlink{client_8cpp_a0b49557e01665bf5143bcd096df8159d}{frame\-\_\-number} = 0
+\item 
+int \hyperlink{client_8cpp_a94882589f3c71217dc884ac33e854b58}{frame\-\_\-number2} = 0
+\item 
+string \hyperlink{client_8cpp_a6b202494021311fabaa80fc7db3170f2}{person\-Name} = \char`\"{}faces/\char`\"{}
+\item 
+const string \hyperlink{client_8cpp_afd7c75fbe68e217ab50f2e7150f9baf1}{database\-Path} = \char`\"{}../\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{client_8cpp_ac0f00c2ec898e3f8af78f3999f92d254}{\index{client.\-cpp@{client.\-cpp}!check\-Dir@{check\-Dir}}
+\index{check\-Dir@{check\-Dir}!client.cpp@{client.\-cpp}}
+\subsubsection[{check\-Dir}]{\setlength{\rightskip}{0pt plus 5cm}bool check\-Dir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_ac0f00c2ec898e3f8af78f3999f92d254}
+
+
+Check if a directory exists. 
+
+This function checks if a directory specified by {\ttfamily person\-Name} exists in the parent directory (\char`\"{}../\char`\"{}).
+
+\begin{DoxyReturn}{Returns}
+True if the directory exists, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 389 of file client.\-cpp.
+
+\hypertarget{client_8cpp_ab4aabfdcc9a54dc707a10e2ecbe19e54}{\index{client.\-cpp@{client.\-cpp}!create\-Database@{create\-Database}}
+\index{create\-Database@{create\-Database}!client.cpp@{client.\-cpp}}
+\subsubsection[{create\-Database}]{\setlength{\rightskip}{0pt plus 5cm}void create\-Database (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_ab4aabfdcc9a54dc707a10e2ecbe19e54}
+
+
+Create a face recognition database and save the trained model. 
+
+This function creates a face recognition database using images from the specified directory. It trains a face recognition model using the Eigenfaces algorithm and saves the trained model. 
+
+Definition at line 316 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a1cb2db748f2655bceab4f4958cfc6d85}{\index{client.\-cpp@{client.\-cpp}!ctr\-Menu@{ctr\-Menu}}
+\index{ctr\-Menu@{ctr\-Menu}!client.cpp@{client.\-cpp}}
+\subsubsection[{ctr\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void ctr\-Menu (
+\begin{DoxyParamCaption}
+\item[{int}]{event, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{flags, }
+\item[{void $\ast$}]{userdata}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_a1cb2db748f2655bceab4f4958cfc6d85}
+
+
+Callback function for mouse events in the menu. 
+
+Handle mouse events in the menu.
+
+This function handles mouse events in the menu, such as button clicks.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The type of mouse event. \\
+\hline
+{\em x} & The x-\/coordinate of the mouse position. \\
+\hline
+{\em y} & The y-\/coordinate of the mouse position. \\
+\hline
+{\em flags} & Additional flags. \\
+\hline
+{\em userdata} & Additional user data (unused in this case). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a49d307938f0a43f8dfb95c5a1ce082d9}{\index{client.\-cpp@{client.\-cpp}!fen\-Menu@{fen\-Menu}}
+\index{fen\-Menu@{fen\-Menu}!client.cpp@{client.\-cpp}}
+\subsubsection[{fen\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void fen\-Menu (
+\begin{DoxyParamCaption}
+\item[{Mat \&}]{menu\-Image}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_a49d307938f0a43f8dfb95c5a1ce082d9}
+
+
+Display the menu on the given image. 
+
+Display the menu on the provided image.
+
+This function displays the menu on the provided image.
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu\-Image} & The image to display the menu on. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 126 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a3f87c9bf7410f5d0d56d545f778f0876}{\index{client.\-cpp@{client.\-cpp}!get\-Files\-In\-Directory@{get\-Files\-In\-Directory}}
+\index{get\-Files\-In\-Directory@{get\-Files\-In\-Directory}!client.cpp@{client.\-cpp}}
+\subsubsection[{get\-Files\-In\-Directory}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ get\-Files\-In\-Directory (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{dir\-Path}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_a3f87c9bf7410f5d0d56d545f778f0876}
+
+
+Get the list of files in a directory with a specific extension. 
+
+This function retrieves the list of files in the specified directory ({\ttfamily dir\-Path}) with the specified extension (\char`\"{}.\-png\char`\"{} in this case).
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\-Path} & The path to the directory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings representing the file paths. 
+\end{DoxyReturn}
+
+
+Definition at line 291 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{client.\-cpp@{client.\-cpp}!main@{main}}
+\index{main@{main}!client.cpp@{client.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Main function of the client application. 
+
+The main function of the client application handles socket communication, menu display, and image processing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command-\/line arguments. \\
+\hline
+{\em argv} & Array of command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 428 of file client.\-cpp.
+
+\hypertarget{client_8cpp_adf2674287d0b3b9e8baecefc3e8fafa9}{\index{client.\-cpp@{client.\-cpp}!mkdir@{mkdir}}
+\index{mkdir@{mkdir}!client.cpp@{client.\-cpp}}
+\subsubsection[{mkdir}]{\setlength{\rightskip}{0pt plus 5cm}void mkdir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_adf2674287d0b3b9e8baecefc3e8fafa9}
+
+
+Create a new directory. 
+
+This function creates a new directory specified by {\ttfamily person\-Name} in the parent directory (\char`\"{}../\char`\"{}). It uses the \char`\"{}mkdir\char`\"{} command with the \char`\"{}-\/p\char`\"{} option to create parent directories as needed. 
+
+Definition at line 405 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a4cd70c2a1211b419e3d1c733866b43da}{\index{client.\-cpp@{client.\-cpp}!save\-Image@{save\-Image}}
+\index{save\-Image@{save\-Image}!client.cpp@{client.\-cpp}}
+\subsubsection[{save\-Image}]{\setlength{\rightskip}{0pt plus 5cm}void save\-Image (
+\begin{DoxyParamCaption}
+\item[{int}]{frame\-\_\-number, }
+\item[{Mat}]{frame, }
+\item[{Cascade\-Classifier $\ast$}]{face\-\_\-cascade, }
+\item[{Ptr$<$ Face\-Recognizer $>$}]{modelreco, }
+\item[{Ptr$<$ Face\-Recognizer $>$}]{modelreco2}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_a4cd70c2a1211b419e3d1c733866b43da}
+
+
+Find and recognizes a face. 
+
+This function finds faces on frame and check for its correspondance in known database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\-\_\-number} & Gives an I\-D number to the frame. \\
+\hline
+{\em frame} & The last frame captured. \\
+\hline
+{\em face\-\_\-cascade} & The model that is used to detect faces. \\
+\hline
+{\em modelreco} & The first model to identify a face. \\
+\hline
+{\em modelreco} & The second model to identify a face. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 208 of file client.\-cpp.
+
+\hypertarget{client_8cpp_aa37fbf46fbe2d0b46c03bae6a4239f2f}{\index{client.\-cpp@{client.\-cpp}!save\-Image\-Lean@{save\-Image\-Lean}}
+\index{save\-Image\-Lean@{save\-Image\-Lean}!client.cpp@{client.\-cpp}}
+\subsubsection[{save\-Image\-Lean}]{\setlength{\rightskip}{0pt plus 5cm}void save\-Image\-Lean (
+\begin{DoxyParamCaption}
+\item[{int}]{frame\-\_\-number, }
+\item[{Mat}]{frame, }
+\item[{Cascade\-Classifier $\ast$}]{face\-\_\-cascade}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_aa37fbf46fbe2d0b46c03bae6a4239f2f}
+
+
+Find and save a face. 
+
+This function finds faces on frame and saves them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\-\_\-number} & Gives an I\-D number to the frame. \\
+\hline
+{\em frame} & The last frame captured. \\
+\hline
+{\em face\-\_\-cascade} & The model that is used to detect faces. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 172 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a8790f86a6e76eaa71b49430bd82f65f6}{\index{client.\-cpp@{client.\-cpp}!Socket\-Connect@{Socket\-Connect}}
+\index{Socket\-Connect@{Socket\-Connect}!client.cpp@{client.\-cpp}}
+\subsubsection[{Socket\-Connect}]{\setlength{\rightskip}{0pt plus 5cm}int Socket\-Connect (
+\begin{DoxyParamCaption}
+\item[{int}]{socket, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_a8790f86a6e76eaa71b49430bd82f65f6}
+
+
+Connect to a socket. 
+
+This function creates and connects to a socket.
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & The socket file descriptor. \\
+\hline
+{\em port} & The port number to connect to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 151 of file client.\-cpp.
+
+\hypertarget{client_8cpp_acbd312286f9b56e0450bc659cefe965e}{\index{client.\-cpp@{client.\-cpp}!update\-Database@{update\-Database}}
+\index{update\-Database@{update\-Database}!client.cpp@{client.\-cpp}}
+\subsubsection[{update\-Database}]{\setlength{\rightskip}{0pt plus 5cm}void update\-Database (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{client_8cpp_acbd312286f9b56e0450bc659cefe965e}
+
+
+Update a face recognition database with new images and save the trained model. 
+
+This function updates an existing face recognition database by adding new images from the specified directory. It loads the existing face recognition model, updates it with new images, and saves the updated model. 
+
+Definition at line 352 of file client.\-cpp.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{client_8cpp_ad0f029dc277900ead03a0fcdfbf819e3}{\index{client.\-cpp@{client.\-cpp}!current\-Mode\-Index@{current\-Mode\-Index}}
+\index{current\-Mode\-Index@{current\-Mode\-Index}!client.cpp@{client.\-cpp}}
+\subsubsection[{current\-Mode\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int current\-Mode\-Index = 0}}\label{client_8cpp_ad0f029dc277900ead03a0fcdfbf819e3}
+
+
+Definition at line 47 of file client.\-cpp.
+
+\hypertarget{client_8cpp_abbfe42f5a97ddaceac48ca495e1706da}{\index{client.\-cpp@{client.\-cpp}!current\-Resolution\-Index@{current\-Resolution\-Index}}
+\index{current\-Resolution\-Index@{current\-Resolution\-Index}!client.cpp@{client.\-cpp}}
+\subsubsection[{current\-Resolution\-Index}]{\setlength{\rightskip}{0pt plus 5cm}int current\-Resolution\-Index = {\bf R\-E\-S\-\_\-\-I\-N\-D\-E\-X}}}\label{client_8cpp_abbfe42f5a97ddaceac48ca495e1706da}
+
+
+Definition at line 46 of file client.\-cpp.
+
+\hypertarget{client_8cpp_afd7c75fbe68e217ab50f2e7150f9baf1}{\index{client.\-cpp@{client.\-cpp}!database\-Path@{database\-Path}}
+\index{database\-Path@{database\-Path}!client.cpp@{client.\-cpp}}
+\subsubsection[{database\-Path}]{\setlength{\rightskip}{0pt plus 5cm}const string database\-Path = \char`\"{}../\char`\"{}}}\label{client_8cpp_afd7c75fbe68e217ab50f2e7150f9baf1}
+
+
+Definition at line 56 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a0b49557e01665bf5143bcd096df8159d}{\index{client.\-cpp@{client.\-cpp}!frame\-\_\-number@{frame\-\_\-number}}
+\index{frame\-\_\-number@{frame\-\_\-number}!client.cpp@{client.\-cpp}}
+\subsubsection[{frame\-\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}int frame\-\_\-number = 0}}\label{client_8cpp_a0b49557e01665bf5143bcd096df8159d}
+
+
+Definition at line 52 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a94882589f3c71217dc884ac33e854b58}{\index{client.\-cpp@{client.\-cpp}!frame\-\_\-number2@{frame\-\_\-number2}}
+\index{frame\-\_\-number2@{frame\-\_\-number2}!client.cpp@{client.\-cpp}}
+\subsubsection[{frame\-\_\-number2}]{\setlength{\rightskip}{0pt plus 5cm}int frame\-\_\-number2 = 0}}\label{client_8cpp_a94882589f3c71217dc884ac33e854b58}
+
+
+Definition at line 53 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a6b29e4f37f4482274af785ad5ffe96a7}{\index{client.\-cpp@{client.\-cpp}!mode@{mode}}
+\index{mode@{mode}!client.cpp@{client.\-cpp}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t mode = 0}}\label{client_8cpp_a6b29e4f37f4482274af785ad5ffe96a7}
+
+
+Definition at line 50 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a6b202494021311fabaa80fc7db3170f2}{\index{client.\-cpp@{client.\-cpp}!person\-Name@{person\-Name}}
+\index{person\-Name@{person\-Name}!client.cpp@{client.\-cpp}}
+\subsubsection[{person\-Name}]{\setlength{\rightskip}{0pt plus 5cm}string person\-Name = \char`\"{}faces/\char`\"{}}}\label{client_8cpp_a6b202494021311fabaa80fc7db3170f2}
+
+
+Definition at line 55 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a75ee5d9f296c93564a3c20537c4c5faf}{\index{client.\-cpp@{client.\-cpp}!person\-Name\-Database@{person\-Name\-Database}}
+\index{person\-Name\-Database@{person\-Name\-Database}!client.cpp@{client.\-cpp}}
+\subsubsection[{person\-Name\-Database}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ person\-Name\-Database}}\label{client_8cpp_a75ee5d9f296c93564a3c20537c4c5faf}
+
+
+Definition at line 48 of file client.\-cpp.
+
+\hypertarget{client_8cpp_a56d7c15d0792ee520395d9bf3be98ebb}{\index{client.\-cpp@{client.\-cpp}!res\-\_\-array@{res\-\_\-array}}
+\index{res\-\_\-array@{res\-\_\-array}!client.cpp@{client.\-cpp}}
+\subsubsection[{res\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t res\-\_\-array = 0}}\label{client_8cpp_a56d7c15d0792ee520395d9bf3be98ebb}
+
+
+Definition at line 49 of file client.\-cpp.
+

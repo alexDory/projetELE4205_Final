@@ -1,0 +1,363 @@
+\hypertarget{serveur_8hpp}{\section{serv/serveur.hpp File Reference}
+\label{serveur_8hpp}\index{serv/serveur.\-hpp@{serv/serveur.\-hpp}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
+{\ttfamily \#include $<$thread$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+{\ttfamily \#include $<$sys/wait.\-h$>$}\\*
+{\ttfamily \#include $<$regex$>$}\\*
+{\ttfamily \#include \char`\"{}opencv2/highgui/highgui.\-hpp\char`\"{}}\\*
+{\ttfamily \#include $<$opencv2/opencv.\-hpp$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structResolution}{Resolution}
+\begin{DoxyCompactList}\small\item\em Represents a resolution with width and height. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{serveur_8hpp_a2202f63d963700d51e0020db9cb64df6}{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}~4099
+\item 
+\#define \hyperlink{serveur_8hpp_aeee2aa85070156835a244d7bce7757fc}{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T}~4100
+\item 
+\#define \hyperlink{serveur_8hpp_a8de1291c9c46d07ede4ec085515d300a}{E\-L\-E4205\-\_\-\-O\-K}~0b00000001
+\item 
+\#define \hyperlink{serveur_8hpp_ac1fba0c194ef83a6faf61080e88954fc}{E\-L\-E4205\-\_\-\-Q\-U\-I\-T}~0b00000010
+\item 
+\#define \hyperlink{serveur_8hpp_a41621e32d21dd071a8c88ddd0a3a48a0}{R\-E\-S01}~0b00000100
+\item 
+\#define \hyperlink{serveur_8hpp_adf5196ca46145659d8ab7bfd5c030908}{R\-E\-S02}~0b00001000
+\item 
+\#define \hyperlink{serveur_8hpp_aae884d30c0d70c6900e152fa2128aa09}{R\-E\-S03}~0b00010000
+\item 
+\#define \hyperlink{serveur_8hpp_ae38d0ccc9f453cea96fb7535b2a65440}{R\-E\-S04}~0b00100000
+\item 
+\#define \hyperlink{serveur_8hpp_a3783c8ee0abe77aec5a1e4116a68a456}{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}~2
+\item 
+\#define \hyperlink{serveur_8hpp_adfea8c2c7354f194e7d4f943604e6456}{L\-E\-A\-R\-N}~0b00001000
+\item 
+\#define \hyperlink{serveur_8hpp_a1a822d7cfac2faf6f1b9bd16a0c5709b}{K\-N\-O\-W\-N}~0b00010000
+\item 
+\#define \hyperlink{serveur_8hpp_ac1ae4add974b9cfc6b5aaf8a578f01ab}{U\-N\-K\-N\-O\-W\-N}~0b00100000
+\item 
+\#define \hyperlink{serveur_8hpp_ad1235d5ce36f7267285e82dccd428aa6}{R\-E\-A\-D\-Y}~0b00000001
+\item 
+\#define \hyperlink{serveur_8hpp_aa81e38311b5b1ea87664239c85b6d3db}{I\-D\-O\-W\-N}~0b00000010
+\item 
+\#define \hyperlink{serveur_8hpp_a09926ab335c60438202532ddbf0a910e}{P\-U\-S\-H\-B}~0b00000100
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t \hyperlink{serveur_8hpp_a22f199d91b085d03bba15861f7eab7d1}{get\-Res\-Index} (uint32\-\_\-t \hyperlink{client_8cpp_a56d7c15d0792ee520395d9bf3be98ebb}{res\-\_\-array})
+\begin{DoxyCompactList}\small\item\em Get the index of the selected resolution from the binary representation. \end{DoxyCompactList}\item 
+short \hyperlink{serveur_8hpp_a55f9d2f5bcdc14b9506e7616d270266b}{Socket\-Create} (void)
+\begin{DoxyCompactList}\small\item\em Create a socket. \end{DoxyCompactList}\item 
+int \hyperlink{serveur_8hpp_a551bd5ac0b418fc01d7062fef7a7b43d}{sock\-Bind} (int h\-Socket, int p)
+\begin{DoxyCompactList}\small\item\em Bind a socket to a specified port. \end{DoxyCompactList}\item 
+int \hyperlink{serveur_8hpp_adf03a89bf4e9eacf02aaa7f5d915ee6e}{send\-Image} (Video\-Capture capture, Mat frame, int sock, int flag)
+\begin{DoxyCompactList}\small\item\em Send an image over a socket. \end{DoxyCompactList}\item 
+int \hyperlink{serveur_8hpp_a9f4feefe84656d35fdc07fa03810222b}{get\-Light} ()
+\begin{DoxyCompactList}\small\item\em Get the light intensity value. \end{DoxyCompactList}\item 
+int \hyperlink{serveur_8hpp_a7df8e803c4e55b5d4320ff251edcd213}{key\-Pressed} ()
+\begin{DoxyCompactList}\small\item\em Getif the button is pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structResolution}{Resolution} \hyperlink{serveur_8hpp_a9c815864b3f09d5924e6753f4de813a0}{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of supported camera resolutions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{serveur_8hpp_a8de1291c9c46d07ede4ec085515d300a}{\index{serveur.\-hpp@{serveur.\-hpp}!E\-L\-E4205\-\_\-\-O\-K@{E\-L\-E4205\-\_\-\-O\-K}}
+\index{E\-L\-E4205\-\_\-\-O\-K@{E\-L\-E4205\-\_\-\-O\-K}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{E\-L\-E4205\-\_\-\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-L\-E4205\-\_\-\-O\-K~0b00000001}}\label{serveur_8hpp_a8de1291c9c46d07ede4ec085515d300a}
+
+
+Definition at line 23 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_ac1fba0c194ef83a6faf61080e88954fc}{\index{serveur.\-hpp@{serveur.\-hpp}!E\-L\-E4205\-\_\-\-Q\-U\-I\-T@{E\-L\-E4205\-\_\-\-Q\-U\-I\-T}}
+\index{E\-L\-E4205\-\_\-\-Q\-U\-I\-T@{E\-L\-E4205\-\_\-\-Q\-U\-I\-T}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{E\-L\-E4205\-\_\-\-Q\-U\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-L\-E4205\-\_\-\-Q\-U\-I\-T~0b00000010}}\label{serveur_8hpp_ac1fba0c194ef83a6faf61080e88954fc}
+
+
+Definition at line 24 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_aa81e38311b5b1ea87664239c85b6d3db}{\index{serveur.\-hpp@{serveur.\-hpp}!I\-D\-O\-W\-N@{I\-D\-O\-W\-N}}
+\index{I\-D\-O\-W\-N@{I\-D\-O\-W\-N}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{I\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-D\-O\-W\-N~0b00000010}}\label{serveur_8hpp_aa81e38311b5b1ea87664239c85b6d3db}
+
+
+Definition at line 35 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_a1a822d7cfac2faf6f1b9bd16a0c5709b}{\index{serveur.\-hpp@{serveur.\-hpp}!K\-N\-O\-W\-N@{K\-N\-O\-W\-N}}
+\index{K\-N\-O\-W\-N@{K\-N\-O\-W\-N}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{K\-N\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-N\-O\-W\-N~0b00010000}}\label{serveur_8hpp_a1a822d7cfac2faf6f1b9bd16a0c5709b}
+
+
+Definition at line 31 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_adfea8c2c7354f194e7d4f943604e6456}{\index{serveur.\-hpp@{serveur.\-hpp}!L\-E\-A\-R\-N@{L\-E\-A\-R\-N}}
+\index{L\-E\-A\-R\-N@{L\-E\-A\-R\-N}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{L\-E\-A\-R\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-A\-R\-N~0b00001000}}\label{serveur_8hpp_adfea8c2c7354f194e7d4f943604e6456}
+
+
+Definition at line 30 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_aeee2aa85070156835a244d7bce7757fc}{\index{serveur.\-hpp@{serveur.\-hpp}!M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T@{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T}}
+\index{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T@{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T~4100}}\label{serveur_8hpp_aeee2aa85070156835a244d7bce7757fc}
+
+
+Definition at line 22 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_a2202f63d963700d51e0020db9cb64df6}{\index{serveur.\-hpp@{serveur.\-hpp}!P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R@{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}}
+\index{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R@{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R~4099}}\label{serveur_8hpp_a2202f63d963700d51e0020db9cb64df6}
+
+
+Definition at line 21 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_a09926ab335c60438202532ddbf0a910e}{\index{serveur.\-hpp@{serveur.\-hpp}!P\-U\-S\-H\-B@{P\-U\-S\-H\-B}}
+\index{P\-U\-S\-H\-B@{P\-U\-S\-H\-B}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{P\-U\-S\-H\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-U\-S\-H\-B~0b00000100}}\label{serveur_8hpp_a09926ab335c60438202532ddbf0a910e}
+
+
+Definition at line 36 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_ad1235d5ce36f7267285e82dccd428aa6}{\index{serveur.\-hpp@{serveur.\-hpp}!R\-E\-A\-D\-Y@{R\-E\-A\-D\-Y}}
+\index{R\-E\-A\-D\-Y@{R\-E\-A\-D\-Y}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{R\-E\-A\-D\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-Y~0b00000001}}\label{serveur_8hpp_ad1235d5ce36f7267285e82dccd428aa6}
+
+
+Definition at line 34 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_a41621e32d21dd071a8c88ddd0a3a48a0}{\index{serveur.\-hpp@{serveur.\-hpp}!R\-E\-S01@{R\-E\-S01}}
+\index{R\-E\-S01@{R\-E\-S01}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{R\-E\-S01}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S01~0b00000100}}\label{serveur_8hpp_a41621e32d21dd071a8c88ddd0a3a48a0}
+
+
+Definition at line 25 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_adf5196ca46145659d8ab7bfd5c030908}{\index{serveur.\-hpp@{serveur.\-hpp}!R\-E\-S02@{R\-E\-S02}}
+\index{R\-E\-S02@{R\-E\-S02}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{R\-E\-S02}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S02~0b00001000}}\label{serveur_8hpp_adf5196ca46145659d8ab7bfd5c030908}
+
+
+Definition at line 26 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_aae884d30c0d70c6900e152fa2128aa09}{\index{serveur.\-hpp@{serveur.\-hpp}!R\-E\-S03@{R\-E\-S03}}
+\index{R\-E\-S03@{R\-E\-S03}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{R\-E\-S03}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S03~0b00010000}}\label{serveur_8hpp_aae884d30c0d70c6900e152fa2128aa09}
+
+
+Definition at line 27 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_ae38d0ccc9f453cea96fb7535b2a65440}{\index{serveur.\-hpp@{serveur.\-hpp}!R\-E\-S04@{R\-E\-S04}}
+\index{R\-E\-S04@{R\-E\-S04}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{R\-E\-S04}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S04~0b00100000}}\label{serveur_8hpp_ae38d0ccc9f453cea96fb7535b2a65440}
+
+
+Definition at line 28 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_a3783c8ee0abe77aec5a1e4116a68a456}{\index{serveur.\-hpp@{serveur.\-hpp}!R\-E\-S\-\_\-\-I\-N\-D\-E\-X@{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}}
+\index{R\-E\-S\-\_\-\-I\-N\-D\-E\-X@{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-I\-N\-D\-E\-X~2}}\label{serveur_8hpp_a3783c8ee0abe77aec5a1e4116a68a456}
+
+
+Definition at line 29 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_ac1ae4add974b9cfc6b5aaf8a578f01ab}{\index{serveur.\-hpp@{serveur.\-hpp}!U\-N\-K\-N\-O\-W\-N@{U\-N\-K\-N\-O\-W\-N}}
+\index{U\-N\-K\-N\-O\-W\-N@{U\-N\-K\-N\-O\-W\-N}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{U\-N\-K\-N\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-N\-K\-N\-O\-W\-N~0b00100000}}\label{serveur_8hpp_ac1ae4add974b9cfc6b5aaf8a578f01ab}
+
+
+Definition at line 32 of file serveur.\-hpp.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{serveur_8hpp_a9f4feefe84656d35fdc07fa03810222b}{\index{serveur.\-hpp@{serveur.\-hpp}!get\-Light@{get\-Light}}
+\index{get\-Light@{get\-Light}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{get\-Light}]{\setlength{\rightskip}{0pt plus 5cm}int get\-Light (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{serveur_8hpp_a9f4feefe84656d35fdc07fa03810222b}
+
+
+Get the light intensity value. 
+
+\begin{DoxyReturn}{Returns}
+The light intensity value.
+\end{DoxyReturn}
+Get the light intensity value.
+
+\begin{DoxyReturn}{Returns}
+Light level, -\/1 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file serveur.\-cpp.
+
+\hypertarget{serveur_8hpp_a22f199d91b085d03bba15861f7eab7d1}{\index{serveur.\-hpp@{serveur.\-hpp}!get\-Res\-Index@{get\-Res\-Index}}
+\index{get\-Res\-Index@{get\-Res\-Index}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{get\-Res\-Index}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t get\-Res\-Index (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{res\-\_\-array}
+\end{DoxyParamCaption}
+)}}\label{serveur_8hpp_a22f199d91b085d03bba15861f7eab7d1}
+
+
+Get the index of the selected resolution from the binary representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res\-\_\-array} & The binary representation of the selected resolution. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the selected resolution. 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file serveur.\-hpp.
+
+\hypertarget{serveur_8hpp_a7df8e803c4e55b5d4320ff251edcd213}{\index{serveur.\-hpp@{serveur.\-hpp}!key\-Pressed@{key\-Pressed}}
+\index{key\-Pressed@{key\-Pressed}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{key\-Pressed}]{\setlength{\rightskip}{0pt plus 5cm}int key\-Pressed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{serveur_8hpp_a7df8e803c4e55b5d4320ff251edcd213}
+
+
+Getif the button is pressed. 
+
+\begin{DoxyReturn}{Returns}
+The button state.
+\end{DoxyReturn}
+Getif the button is pressed.
+
+\begin{DoxyReturn}{Returns}
+1 if the key is pressed, -\/1 on error, or 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 12 of file serveur.\-cpp.
+
+\hypertarget{serveur_8hpp_adf03a89bf4e9eacf02aaa7f5d915ee6e}{\index{serveur.\-hpp@{serveur.\-hpp}!send\-Image@{send\-Image}}
+\index{send\-Image@{send\-Image}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{send\-Image}]{\setlength{\rightskip}{0pt plus 5cm}int send\-Image (
+\begin{DoxyParamCaption}
+\item[{Video\-Capture}]{capture, }
+\item[{Mat}]{frame, }
+\item[{int}]{sock, }
+\item[{int}]{flag}
+\end{DoxyParamCaption}
+)}}\label{serveur_8hpp_adf03a89bf4e9eacf02aaa7f5d915ee6e}
+
+
+Send an image over a socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em capture} & The video capture object. \\
+\hline
+{\em frame} & The image frame to send. \\
+\hline
+{\em sock} & The socket to use for sending. \\
+\hline
+{\em flag} & Flag indicating whether to send the image header. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error. 
+\end{DoxyReturn}
+\hypertarget{serveur_8hpp_a551bd5ac0b418fc01d7062fef7a7b43d}{\index{serveur.\-hpp@{serveur.\-hpp}!sock\-Bind@{sock\-Bind}}
+\index{sock\-Bind@{sock\-Bind}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{sock\-Bind}]{\setlength{\rightskip}{0pt plus 5cm}int sock\-Bind (
+\begin{DoxyParamCaption}
+\item[{int}]{h\-Socket, }
+\item[{int}]{p}
+\end{DoxyParamCaption}
+)}}\label{serveur_8hpp_a551bd5ac0b418fc01d7062fef7a7b43d}
+
+
+Bind a socket to a specified port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\-Socket} & The socket to bind. \\
+\hline
+{\em p} & Port number for binding. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error.
+\end{DoxyReturn}
+Bind a socket to a specified port.
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\-Socket} & The socket to bind. \\
+\hline
+{\em p} & Port number. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file serveur.\-cpp.
+
+\hypertarget{serveur_8hpp_a55f9d2f5bcdc14b9506e7616d270266b}{\index{serveur.\-hpp@{serveur.\-hpp}!Socket\-Create@{Socket\-Create}}
+\index{Socket\-Create@{Socket\-Create}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{Socket\-Create}]{\setlength{\rightskip}{0pt plus 5cm}short Socket\-Create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{serveur_8hpp_a55f9d2f5bcdc14b9506e7616d270266b}
+
+
+Create a socket. 
+
+\begin{DoxyReturn}{Returns}
+The created socket. 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file serveur.\-hpp.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{serveur_8hpp_a9c815864b3f09d5924e6753f4de813a0}{\index{serveur.\-hpp@{serveur.\-hpp}!C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S@{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S}}
+\index{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S@{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S}!serveur.hpp@{serveur.\-hpp}}
+\subsubsection[{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S}}\label{serveur_8hpp_a9c815864b3f09d5924e6753f4de813a0}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \{160, 120\},
+    \{320, 240\},
+    \{800, 600\},
+    \{1280, 720\}
+\}
+\end{DoxyCode}
+
+
+Array of supported camera resolutions. 
+
+
+
+Definition at line 51 of file serveur.\-hpp.
+

@@ -1,0 +1,715 @@
+\hypertarget{client_8hpp}{\section{client/client.hpp File Reference}
+\label{client_8hpp}\index{client/client.\-hpp@{client/client.\-hpp}}
+}
+
+
+Header file for the client application.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
+{\ttfamily \#include $<$thread$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+{\ttfamily \#include $<$regex$>$}\\*
+{\ttfamily \#include $<$sys/wait.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}opencv2/highgui/highgui.\-hpp\char`\"{}}\\*
+{\ttfamily \#include $<$opencv2/opencv.\-hpp$>$}\\*
+{\ttfamily \#include $<$dirent.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structResolution}{Resolution}
+\begin{DoxyCompactList}\small\item\em Represents a resolution with width and height. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{client_8hpp_a2202f63d963700d51e0020db9cb64df6}{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}~4099
+\item 
+\#define \hyperlink{client_8hpp_aeee2aa85070156835a244d7bce7757fc}{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T}~4100
+\item 
+\#define \hyperlink{client_8hpp_aa6cecb8c404241c624e83aee8a3979d2}{S\-E\-R\-V\-E\-R\-\_\-\-A\-D\-D\-R\-E\-S\-S}~\char`\"{}192.\-168.\-7.\-2\char`\"{}
+\item 
+\#define \hyperlink{client_8hpp_a8de1291c9c46d07ede4ec085515d300a}{E\-L\-E4205\-\_\-\-O\-K}~0b00000001
+\item 
+\#define \hyperlink{client_8hpp_a343bb7f80db7ac24f1e215bbf9feebb2}{E\-L\-E4205\-\_\-\-E\-N\-D}~0b00000010
+\item 
+\#define \hyperlink{client_8hpp_a41621e32d21dd071a8c88ddd0a3a48a0}{R\-E\-S01}~0b00000100
+\item 
+\#define \hyperlink{client_8hpp_adf5196ca46145659d8ab7bfd5c030908}{R\-E\-S02}~0b00001000
+\item 
+\#define \hyperlink{client_8hpp_aae884d30c0d70c6900e152fa2128aa09}{R\-E\-S03}~0b00010000
+\item 
+\#define \hyperlink{client_8hpp_ae38d0ccc9f453cea96fb7535b2a65440}{R\-E\-S04}~0b00100000
+\item 
+\#define \hyperlink{client_8hpp_a2e2b501c73618a9f1e8ad356e6aa889c}{M\-O\-D\-E01}~0b01000000
+\item 
+\#define \hyperlink{client_8hpp_a8dc02e1e6af2a76e1559a230ee3caa81}{M\-O\-D\-E02}~0b10000000
+\item 
+\#define \hyperlink{client_8hpp_a3783c8ee0abe77aec5a1e4116a68a456}{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}~2
+\item 
+\#define \hyperlink{client_8hpp_ab4d67a17b45e6398fefcd4fae6af022a}{M\-O\-D\-E\-\_\-\-I\-N\-D\-E\-X}~1
+\item 
+\#define \hyperlink{client_8hpp_ad1235d5ce36f7267285e82dccd428aa6}{R\-E\-A\-D\-Y}~0b00000001
+\item 
+\#define \hyperlink{client_8hpp_aa81e38311b5b1ea87664239c85b6d3db}{I\-D\-O\-W\-N}~0b00000010
+\item 
+\#define \hyperlink{client_8hpp_a09926ab335c60438202532ddbf0a910e}{P\-U\-S\-H\-B}~0b00000100
+\item 
+\#define \hyperlink{client_8hpp_adfea8c2c7354f194e7d4f943604e6456}{L\-E\-A\-R\-N}~0b00001000
+\item 
+\#define \hyperlink{client_8hpp_a1a822d7cfac2faf6f1b9bd16a0c5709b}{K\-N\-O\-W\-N}~0b00010000
+\item 
+\#define \hyperlink{client_8hpp_ac1ae4add974b9cfc6b5aaf8a578f01ab}{U\-N\-K\-N\-O\-W\-N}~0b00100000
+\item 
+\#define \hyperlink{client_8hpp_a4af1b6159e447ba72652bb7fcdfa726e}{E\-S\-C}~27
+\item 
+\#define \hyperlink{client_8hpp_aef34f3e4acf0ecb532bf3341dcfed510}{E\-S\-C\-\_\-\-W\-A\-I\-T\-\_\-\-T\-I\-M\-E}~30
+\item 
+\#define \hyperlink{client_8hpp_acc59b7b9d083568456e1131e8492b5dd}{C\-A\-M\-\_\-\-N\-A\-M\-E}~\char`\"{}Caméra\char`\"{}
+\item 
+\#define \hyperlink{client_8hpp_af6601a5e29c46050b2e9da208aaf1eb1}{M\-E\-N\-U\-\_\-\-N\-A\-M\-E}~\char`\"{}Sélectionner la résolution / Mode\char`\"{}
+\item 
+\#define \hyperlink{client_8hpp_a6945b74b5869e30ea9613b48f8f80dbe}{M\-O\-D\-E\-\_\-\-T\-E\-X\-T1}~\char`\"{}A\-P\-P\-R\-E\-N\-T\-I\-S\-S\-A\-G\-E\char`\"{}
+\item 
+\#define \hyperlink{client_8hpp_a5fc2717d1fbe2fcd1cbd5826019b5625}{M\-O\-D\-E\-\_\-\-T\-E\-X\-T2}~\char`\"{}R\-E\-C\-O\-N\-N\-A\-I\-S\-S\-A\-N\-C\-E\char`\"{}
+\item 
+\#define \hyperlink{client_8hpp_a8ab012c9b505a97138d6f18221340188}{M\-E\-N\-U\-\_\-\-W}~900
+\item 
+\#define \hyperlink{client_8hpp_a9552ba249c0540ffe9a08a05d1b92504}{M\-E\-N\-U\-\_\-\-H}~450
+\item 
+\#define \hyperlink{client_8hpp_ae6010d5faf8819286fbf4b31756450c4}{T\-E\-X\-T\-\_\-\-H}~32
+\item 
+\#define \hyperlink{client_8hpp_a5a98a53af85f942bbd4af23c761c7f99}{T\-E\-X\-T\-\_\-\-W}~200
+\item 
+\#define \hyperlink{client_8hpp_a1f2bebb9341d88cac93ad6e9923610fb}{F\-I\-R\-S\-T\-\_\-\-B\-U\-T\-T\-O\-N\-\_\-\-Y}~100
+\item 
+\#define \hyperlink{client_8hpp_aa00c852ab240ccfc4717b66f0dddeeb0}{B\-U\-T\-T\-O\-N\-\_\-\-X}~100
+\item 
+\#define \hyperlink{client_8hpp_a7e8102dd5690cd6ea3fa62ef33d102c3}{L\-E\-A\-R\-N\-\_\-\-X}~600
+\item 
+\#define \hyperlink{client_8hpp_a659620cb1de2ecc3176053f154bec574}{L\-E\-A\-R\-N\-\_\-\-Y}~100
+\item 
+\#define \hyperlink{client_8hpp_a35b37920bf9cfc31c6854519e141e115}{R\-E\-C\-O\-N\-\_\-\-Y}~200
+\item 
+\#define \hyperlink{client_8hpp_a2ccb44c8b4475f6a6334cff498f209e6}{P\-A\-D\-D}~10
+\item 
+\#define \hyperlink{client_8hpp_aacde44f32f8d642ce6ba463d8b6dbfd3}{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-H}~200
+\item 
+\#define \hyperlink{client_8hpp_aafbd71e5f87ecdf248f975620d229fb9}{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-W}~400
+\item 
+\#define \hyperlink{client_8hpp_adbcd59e2ec07bdfcf39cc13289d32987}{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-N\-A\-M\-E}~\char`\"{}Pas d'image.\char`\"{}
+\item 
+\#define \hyperlink{client_8hpp_ab51cee97335b49c45959a81a30b3dd63}{C\-O\-N\-F\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}~10000
+\item 
+\#define \hyperlink{client_8hpp_aaaa253a12856f3bb8c463ce490dfcd4e}{M\-O\-D\-E\-L\-\_\-\-P\-A\-T\-H}~\char`\"{}/model/trained\-\_\-model.\-xml\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t \hyperlink{client_8hpp_a418ea7e8b06b8c6dbcaecdc151ec03a5}{get\-Res\-Arr} (uint32\-\_\-t index)
+\begin{DoxyCompactList}\small\item\em Get the binary representation of a specific resolution index. \end{DoxyCompactList}\item 
+uint32\-\_\-t \hyperlink{client_8hpp_af1032d0222ef4733659224a82a900656}{get\-Mode\-Arr} (uint32\-\_\-t index)
+\begin{DoxyCompactList}\small\item\em Get the binary representation of a specific mode index. \end{DoxyCompactList}\item 
+short \hyperlink{client_8hpp_a55f9d2f5bcdc14b9506e7616d270266b}{Socket\-Create} (void)
+\begin{DoxyCompactList}\small\item\em Create a socket. \end{DoxyCompactList}\item 
+int \hyperlink{client_8hpp_af3e8abec4d2e7113bca228199a73bbb7}{Socket\-Connect} (int socket, int port=\hyperlink{client_8hpp_a2202f63d963700d51e0020db9cb64df6}{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R})
+\begin{DoxyCompactList}\small\item\em Connect to a socket. \end{DoxyCompactList}\item 
+void \hyperlink{client_8hpp_a60e9e8ec39ad883790b642db468f1466}{save\-Image} (int \hyperlink{client_8hpp_a0b49557e01665bf5143bcd096df8159d}{frame\-\_\-number}, Mat $\ast$frame, Cascade\-Classifier $\ast$face\-\_\-cascade)
+\begin{DoxyCompactList}\small\item\em Save an image to disk. \end{DoxyCompactList}\item 
+void \hyperlink{client_8hpp_a54c6fa8dec0cf15e11f9c1f7851ce888}{Learn\-Face} (Mat $\ast$frame, Cascade\-Classifier $\ast$face\-\_\-cascade)
+\begin{DoxyCompactList}\small\item\em Learn a face from the provided image. \end{DoxyCompactList}\item 
+void \hyperlink{client_8hpp_a49d307938f0a43f8dfb95c5a1ce082d9}{fen\-Menu} (Mat \&menu\-Image)
+\begin{DoxyCompactList}\small\item\em Display the menu on the provided image. \end{DoxyCompactList}\item 
+void \hyperlink{client_8hpp_a1cb2db748f2655bceab4f4958cfc6d85}{ctr\-Menu} (int event, int x, int y, int flags, void $\ast$userdata)
+\begin{DoxyCompactList}\small\item\em Handle mouse events in the menu. \end{DoxyCompactList}\item 
+void \hyperlink{client_8hpp_a427ddd9f7dddcaf4466a77bf8742ff84}{setctr\-Menu} (Mat \&menu\-Image)
+\begin{DoxyCompactList}\small\item\em Set up the mouse event handling for the menu image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structResolution}{Resolution} \hyperlink{client_8hpp_ab9a202aa0c50a3e2728fbf0238c6e7bb}{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S} \mbox{[}$\,$\mbox{]}
+\item 
+const int \hyperlink{client_8hpp_ab89f2a7158448052ac9a16fda411ea4b}{M\-O\-D\-E\-\_\-\-S\-E\-L\-E\-C\-T} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array representing available modes. \end{DoxyCompactList}\item 
+int \hyperlink{client_8hpp_a0b49557e01665bf5143bcd096df8159d}{frame\-\_\-number}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for the client application. 
+
+Definition in file \hyperlink{client_8hpp_source}{client.\-hpp}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{client_8hpp_aacde44f32f8d642ce6ba463d8b6dbfd3}{\index{client.\-hpp@{client.\-hpp}!B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-H@{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-H}}
+\index{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-H@{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-H}!client.hpp@{client.\-hpp}}
+\subsubsection[{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-H~200}}\label{client_8hpp_aacde44f32f8d642ce6ba463d8b6dbfd3}
+
+
+Definition at line 57 of file client.\-hpp.
+
+\hypertarget{client_8hpp_adbcd59e2ec07bdfcf39cc13289d32987}{\index{client.\-hpp@{client.\-hpp}!B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-N\-A\-M\-E@{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-N\-A\-M\-E}}
+\index{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-N\-A\-M\-E@{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-N\-A\-M\-E}!client.hpp@{client.\-hpp}}
+\subsubsection[{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-N\-A\-M\-E~\char`\"{}Pas d'image.\char`\"{}}}\label{client_8hpp_adbcd59e2ec07bdfcf39cc13289d32987}
+
+
+Definition at line 59 of file client.\-hpp.
+
+\hypertarget{client_8hpp_aafbd71e5f87ecdf248f975620d229fb9}{\index{client.\-hpp@{client.\-hpp}!B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-W@{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-W}}
+\index{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-W@{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-W}!client.hpp@{client.\-hpp}}
+\subsubsection[{B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-L\-A\-N\-K\-\_\-\-F\-R\-A\-M\-E\-\_\-\-W~400}}\label{client_8hpp_aafbd71e5f87ecdf248f975620d229fb9}
+
+
+Definition at line 58 of file client.\-hpp.
+
+\hypertarget{client_8hpp_aa00c852ab240ccfc4717b66f0dddeeb0}{\index{client.\-hpp@{client.\-hpp}!B\-U\-T\-T\-O\-N\-\_\-\-X@{B\-U\-T\-T\-O\-N\-\_\-\-X}}
+\index{B\-U\-T\-T\-O\-N\-\_\-\-X@{B\-U\-T\-T\-O\-N\-\_\-\-X}!client.hpp@{client.\-hpp}}
+\subsubsection[{B\-U\-T\-T\-O\-N\-\_\-\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-T\-T\-O\-N\-\_\-\-X~100}}\label{client_8hpp_aa00c852ab240ccfc4717b66f0dddeeb0}
+
+
+Definition at line 51 of file client.\-hpp.
+
+\hypertarget{client_8hpp_acc59b7b9d083568456e1131e8492b5dd}{\index{client.\-hpp@{client.\-hpp}!C\-A\-M\-\_\-\-N\-A\-M\-E@{C\-A\-M\-\_\-\-N\-A\-M\-E}}
+\index{C\-A\-M\-\_\-\-N\-A\-M\-E@{C\-A\-M\-\_\-\-N\-A\-M\-E}!client.hpp@{client.\-hpp}}
+\subsubsection[{C\-A\-M\-\_\-\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-M\-\_\-\-N\-A\-M\-E~\char`\"{}Caméra\char`\"{}}}\label{client_8hpp_acc59b7b9d083568456e1131e8492b5dd}
+
+
+Definition at line 42 of file client.\-hpp.
+
+\hypertarget{client_8hpp_ab51cee97335b49c45959a81a30b3dd63}{\index{client.\-hpp@{client.\-hpp}!C\-O\-N\-F\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{C\-O\-N\-F\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}}
+\index{C\-O\-N\-F\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D@{C\-O\-N\-F\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}!client.hpp@{client.\-hpp}}
+\subsubsection[{C\-O\-N\-F\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-O\-N\-F\-\_\-\-T\-H\-R\-E\-S\-H\-O\-L\-D~10000}}\label{client_8hpp_ab51cee97335b49c45959a81a30b3dd63}
+
+
+Definition at line 61 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a343bb7f80db7ac24f1e215bbf9feebb2}{\index{client.\-hpp@{client.\-hpp}!E\-L\-E4205\-\_\-\-E\-N\-D@{E\-L\-E4205\-\_\-\-E\-N\-D}}
+\index{E\-L\-E4205\-\_\-\-E\-N\-D@{E\-L\-E4205\-\_\-\-E\-N\-D}!client.hpp@{client.\-hpp}}
+\subsubsection[{E\-L\-E4205\-\_\-\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-L\-E4205\-\_\-\-E\-N\-D~0b00000010}}\label{client_8hpp_a343bb7f80db7ac24f1e215bbf9feebb2}
+
+
+Definition at line 25 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a8de1291c9c46d07ede4ec085515d300a}{\index{client.\-hpp@{client.\-hpp}!E\-L\-E4205\-\_\-\-O\-K@{E\-L\-E4205\-\_\-\-O\-K}}
+\index{E\-L\-E4205\-\_\-\-O\-K@{E\-L\-E4205\-\_\-\-O\-K}!client.hpp@{client.\-hpp}}
+\subsubsection[{E\-L\-E4205\-\_\-\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-L\-E4205\-\_\-\-O\-K~0b00000001}}\label{client_8hpp_a8de1291c9c46d07ede4ec085515d300a}
+
+
+Definition at line 24 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a4af1b6159e447ba72652bb7fcdfa726e}{\index{client.\-hpp@{client.\-hpp}!E\-S\-C@{E\-S\-C}}
+\index{E\-S\-C@{E\-S\-C}!client.hpp@{client.\-hpp}}
+\subsubsection[{E\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-S\-C~27}}\label{client_8hpp_a4af1b6159e447ba72652bb7fcdfa726e}
+
+
+Definition at line 40 of file client.\-hpp.
+
+\hypertarget{client_8hpp_aef34f3e4acf0ecb532bf3341dcfed510}{\index{client.\-hpp@{client.\-hpp}!E\-S\-C\-\_\-\-W\-A\-I\-T\-\_\-\-T\-I\-M\-E@{E\-S\-C\-\_\-\-W\-A\-I\-T\-\_\-\-T\-I\-M\-E}}
+\index{E\-S\-C\-\_\-\-W\-A\-I\-T\-\_\-\-T\-I\-M\-E@{E\-S\-C\-\_\-\-W\-A\-I\-T\-\_\-\-T\-I\-M\-E}!client.hpp@{client.\-hpp}}
+\subsubsection[{E\-S\-C\-\_\-\-W\-A\-I\-T\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-S\-C\-\_\-\-W\-A\-I\-T\-\_\-\-T\-I\-M\-E~30}}\label{client_8hpp_aef34f3e4acf0ecb532bf3341dcfed510}
+
+
+Definition at line 41 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a1f2bebb9341d88cac93ad6e9923610fb}{\index{client.\-hpp@{client.\-hpp}!F\-I\-R\-S\-T\-\_\-\-B\-U\-T\-T\-O\-N\-\_\-\-Y@{F\-I\-R\-S\-T\-\_\-\-B\-U\-T\-T\-O\-N\-\_\-\-Y}}
+\index{F\-I\-R\-S\-T\-\_\-\-B\-U\-T\-T\-O\-N\-\_\-\-Y@{F\-I\-R\-S\-T\-\_\-\-B\-U\-T\-T\-O\-N\-\_\-\-Y}!client.hpp@{client.\-hpp}}
+\subsubsection[{F\-I\-R\-S\-T\-\_\-\-B\-U\-T\-T\-O\-N\-\_\-\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-I\-R\-S\-T\-\_\-\-B\-U\-T\-T\-O\-N\-\_\-\-Y~100}}\label{client_8hpp_a1f2bebb9341d88cac93ad6e9923610fb}
+
+
+Definition at line 50 of file client.\-hpp.
+
+\hypertarget{client_8hpp_aa81e38311b5b1ea87664239c85b6d3db}{\index{client.\-hpp@{client.\-hpp}!I\-D\-O\-W\-N@{I\-D\-O\-W\-N}}
+\index{I\-D\-O\-W\-N@{I\-D\-O\-W\-N}!client.hpp@{client.\-hpp}}
+\subsubsection[{I\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-D\-O\-W\-N~0b00000010}}\label{client_8hpp_aa81e38311b5b1ea87664239c85b6d3db}
+
+
+Definition at line 35 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a1a822d7cfac2faf6f1b9bd16a0c5709b}{\index{client.\-hpp@{client.\-hpp}!K\-N\-O\-W\-N@{K\-N\-O\-W\-N}}
+\index{K\-N\-O\-W\-N@{K\-N\-O\-W\-N}!client.hpp@{client.\-hpp}}
+\subsubsection[{K\-N\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-N\-O\-W\-N~0b00010000}}\label{client_8hpp_a1a822d7cfac2faf6f1b9bd16a0c5709b}
+
+
+Definition at line 38 of file client.\-hpp.
+
+\hypertarget{client_8hpp_adfea8c2c7354f194e7d4f943604e6456}{\index{client.\-hpp@{client.\-hpp}!L\-E\-A\-R\-N@{L\-E\-A\-R\-N}}
+\index{L\-E\-A\-R\-N@{L\-E\-A\-R\-N}!client.hpp@{client.\-hpp}}
+\subsubsection[{L\-E\-A\-R\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-A\-R\-N~0b00001000}}\label{client_8hpp_adfea8c2c7354f194e7d4f943604e6456}
+
+
+Definition at line 37 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a7e8102dd5690cd6ea3fa62ef33d102c3}{\index{client.\-hpp@{client.\-hpp}!L\-E\-A\-R\-N\-\_\-\-X@{L\-E\-A\-R\-N\-\_\-\-X}}
+\index{L\-E\-A\-R\-N\-\_\-\-X@{L\-E\-A\-R\-N\-\_\-\-X}!client.hpp@{client.\-hpp}}
+\subsubsection[{L\-E\-A\-R\-N\-\_\-\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-A\-R\-N\-\_\-\-X~600}}\label{client_8hpp_a7e8102dd5690cd6ea3fa62ef33d102c3}
+
+
+Definition at line 52 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a659620cb1de2ecc3176053f154bec574}{\index{client.\-hpp@{client.\-hpp}!L\-E\-A\-R\-N\-\_\-\-Y@{L\-E\-A\-R\-N\-\_\-\-Y}}
+\index{L\-E\-A\-R\-N\-\_\-\-Y@{L\-E\-A\-R\-N\-\_\-\-Y}!client.hpp@{client.\-hpp}}
+\subsubsection[{L\-E\-A\-R\-N\-\_\-\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-A\-R\-N\-\_\-\-Y~100}}\label{client_8hpp_a659620cb1de2ecc3176053f154bec574}
+
+
+Definition at line 53 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a9552ba249c0540ffe9a08a05d1b92504}{\index{client.\-hpp@{client.\-hpp}!M\-E\-N\-U\-\_\-\-H@{M\-E\-N\-U\-\_\-\-H}}
+\index{M\-E\-N\-U\-\_\-\-H@{M\-E\-N\-U\-\_\-\-H}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-E\-N\-U\-\_\-\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-N\-U\-\_\-\-H~450}}\label{client_8hpp_a9552ba249c0540ffe9a08a05d1b92504}
+
+
+Definition at line 47 of file client.\-hpp.
+
+\hypertarget{client_8hpp_af6601a5e29c46050b2e9da208aaf1eb1}{\index{client.\-hpp@{client.\-hpp}!M\-E\-N\-U\-\_\-\-N\-A\-M\-E@{M\-E\-N\-U\-\_\-\-N\-A\-M\-E}}
+\index{M\-E\-N\-U\-\_\-\-N\-A\-M\-E@{M\-E\-N\-U\-\_\-\-N\-A\-M\-E}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-E\-N\-U\-\_\-\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-N\-U\-\_\-\-N\-A\-M\-E~\char`\"{}Sélectionner la résolution / Mode\char`\"{}}}\label{client_8hpp_af6601a5e29c46050b2e9da208aaf1eb1}
+
+
+Definition at line 43 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a8ab012c9b505a97138d6f18221340188}{\index{client.\-hpp@{client.\-hpp}!M\-E\-N\-U\-\_\-\-W@{M\-E\-N\-U\-\_\-\-W}}
+\index{M\-E\-N\-U\-\_\-\-W@{M\-E\-N\-U\-\_\-\-W}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-E\-N\-U\-\_\-\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-E\-N\-U\-\_\-\-W~900}}\label{client_8hpp_a8ab012c9b505a97138d6f18221340188}
+
+
+Definition at line 46 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a2e2b501c73618a9f1e8ad356e6aa889c}{\index{client.\-hpp@{client.\-hpp}!M\-O\-D\-E01@{M\-O\-D\-E01}}
+\index{M\-O\-D\-E01@{M\-O\-D\-E01}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-O\-D\-E01}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-D\-E01~0b01000000}}\label{client_8hpp_a2e2b501c73618a9f1e8ad356e6aa889c}
+
+
+Definition at line 30 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a8dc02e1e6af2a76e1559a230ee3caa81}{\index{client.\-hpp@{client.\-hpp}!M\-O\-D\-E02@{M\-O\-D\-E02}}
+\index{M\-O\-D\-E02@{M\-O\-D\-E02}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-O\-D\-E02}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-D\-E02~0b10000000}}\label{client_8hpp_a8dc02e1e6af2a76e1559a230ee3caa81}
+
+
+Definition at line 31 of file client.\-hpp.
+
+\hypertarget{client_8hpp_ab4d67a17b45e6398fefcd4fae6af022a}{\index{client.\-hpp@{client.\-hpp}!M\-O\-D\-E\-\_\-\-I\-N\-D\-E\-X@{M\-O\-D\-E\-\_\-\-I\-N\-D\-E\-X}}
+\index{M\-O\-D\-E\-\_\-\-I\-N\-D\-E\-X@{M\-O\-D\-E\-\_\-\-I\-N\-D\-E\-X}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-O\-D\-E\-\_\-\-I\-N\-D\-E\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-D\-E\-\_\-\-I\-N\-D\-E\-X~1}}\label{client_8hpp_ab4d67a17b45e6398fefcd4fae6af022a}
+
+
+Definition at line 33 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a6945b74b5869e30ea9613b48f8f80dbe}{\index{client.\-hpp@{client.\-hpp}!M\-O\-D\-E\-\_\-\-T\-E\-X\-T1@{M\-O\-D\-E\-\_\-\-T\-E\-X\-T1}}
+\index{M\-O\-D\-E\-\_\-\-T\-E\-X\-T1@{M\-O\-D\-E\-\_\-\-T\-E\-X\-T1}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-O\-D\-E\-\_\-\-T\-E\-X\-T1}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-D\-E\-\_\-\-T\-E\-X\-T1~\char`\"{}A\-P\-P\-R\-E\-N\-T\-I\-S\-S\-A\-G\-E\char`\"{}}}\label{client_8hpp_a6945b74b5869e30ea9613b48f8f80dbe}
+
+
+Definition at line 44 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a5fc2717d1fbe2fcd1cbd5826019b5625}{\index{client.\-hpp@{client.\-hpp}!M\-O\-D\-E\-\_\-\-T\-E\-X\-T2@{M\-O\-D\-E\-\_\-\-T\-E\-X\-T2}}
+\index{M\-O\-D\-E\-\_\-\-T\-E\-X\-T2@{M\-O\-D\-E\-\_\-\-T\-E\-X\-T2}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-O\-D\-E\-\_\-\-T\-E\-X\-T2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-D\-E\-\_\-\-T\-E\-X\-T2~\char`\"{}R\-E\-C\-O\-N\-N\-A\-I\-S\-S\-A\-N\-C\-E\char`\"{}}}\label{client_8hpp_a5fc2717d1fbe2fcd1cbd5826019b5625}
+
+
+Definition at line 45 of file client.\-hpp.
+
+\hypertarget{client_8hpp_aaaa253a12856f3bb8c463ce490dfcd4e}{\index{client.\-hpp@{client.\-hpp}!M\-O\-D\-E\-L\-\_\-\-P\-A\-T\-H@{M\-O\-D\-E\-L\-\_\-\-P\-A\-T\-H}}
+\index{M\-O\-D\-E\-L\-\_\-\-P\-A\-T\-H@{M\-O\-D\-E\-L\-\_\-\-P\-A\-T\-H}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-O\-D\-E\-L\-\_\-\-P\-A\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-D\-E\-L\-\_\-\-P\-A\-T\-H~\char`\"{}/model/trained\-\_\-model.\-xml\char`\"{}}}\label{client_8hpp_aaaa253a12856f3bb8c463ce490dfcd4e}
+
+
+Definition at line 63 of file client.\-hpp.
+
+\hypertarget{client_8hpp_aeee2aa85070156835a244d7bce7757fc}{\index{client.\-hpp@{client.\-hpp}!M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T@{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T}}
+\index{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T@{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-U\-S\-I\-C\-\_\-\-P\-O\-R\-T~4100}}\label{client_8hpp_aeee2aa85070156835a244d7bce7757fc}
+
+
+Definition at line 22 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a2ccb44c8b4475f6a6334cff498f209e6}{\index{client.\-hpp@{client.\-hpp}!P\-A\-D\-D@{P\-A\-D\-D}}
+\index{P\-A\-D\-D@{P\-A\-D\-D}!client.hpp@{client.\-hpp}}
+\subsubsection[{P\-A\-D\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-D\-D~10}}\label{client_8hpp_a2ccb44c8b4475f6a6334cff498f209e6}
+
+
+Definition at line 55 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a2202f63d963700d51e0020db9cb64df6}{\index{client.\-hpp@{client.\-hpp}!P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R@{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}}
+\index{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R@{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}!client.hpp@{client.\-hpp}}
+\subsubsection[{P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R~4099}}\label{client_8hpp_a2202f63d963700d51e0020db9cb64df6}
+
+
+Definition at line 21 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a09926ab335c60438202532ddbf0a910e}{\index{client.\-hpp@{client.\-hpp}!P\-U\-S\-H\-B@{P\-U\-S\-H\-B}}
+\index{P\-U\-S\-H\-B@{P\-U\-S\-H\-B}!client.hpp@{client.\-hpp}}
+\subsubsection[{P\-U\-S\-H\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-U\-S\-H\-B~0b00000100}}\label{client_8hpp_a09926ab335c60438202532ddbf0a910e}
+
+
+Definition at line 36 of file client.\-hpp.
+
+\hypertarget{client_8hpp_ad1235d5ce36f7267285e82dccd428aa6}{\index{client.\-hpp@{client.\-hpp}!R\-E\-A\-D\-Y@{R\-E\-A\-D\-Y}}
+\index{R\-E\-A\-D\-Y@{R\-E\-A\-D\-Y}!client.hpp@{client.\-hpp}}
+\subsubsection[{R\-E\-A\-D\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-Y~0b00000001}}\label{client_8hpp_ad1235d5ce36f7267285e82dccd428aa6}
+
+
+Definition at line 34 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a35b37920bf9cfc31c6854519e141e115}{\index{client.\-hpp@{client.\-hpp}!R\-E\-C\-O\-N\-\_\-\-Y@{R\-E\-C\-O\-N\-\_\-\-Y}}
+\index{R\-E\-C\-O\-N\-\_\-\-Y@{R\-E\-C\-O\-N\-\_\-\-Y}!client.hpp@{client.\-hpp}}
+\subsubsection[{R\-E\-C\-O\-N\-\_\-\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-C\-O\-N\-\_\-\-Y~200}}\label{client_8hpp_a35b37920bf9cfc31c6854519e141e115}
+
+
+Definition at line 54 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a41621e32d21dd071a8c88ddd0a3a48a0}{\index{client.\-hpp@{client.\-hpp}!R\-E\-S01@{R\-E\-S01}}
+\index{R\-E\-S01@{R\-E\-S01}!client.hpp@{client.\-hpp}}
+\subsubsection[{R\-E\-S01}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S01~0b00000100}}\label{client_8hpp_a41621e32d21dd071a8c88ddd0a3a48a0}
+
+
+Definition at line 26 of file client.\-hpp.
+
+\hypertarget{client_8hpp_adf5196ca46145659d8ab7bfd5c030908}{\index{client.\-hpp@{client.\-hpp}!R\-E\-S02@{R\-E\-S02}}
+\index{R\-E\-S02@{R\-E\-S02}!client.hpp@{client.\-hpp}}
+\subsubsection[{R\-E\-S02}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S02~0b00001000}}\label{client_8hpp_adf5196ca46145659d8ab7bfd5c030908}
+
+
+Definition at line 27 of file client.\-hpp.
+
+\hypertarget{client_8hpp_aae884d30c0d70c6900e152fa2128aa09}{\index{client.\-hpp@{client.\-hpp}!R\-E\-S03@{R\-E\-S03}}
+\index{R\-E\-S03@{R\-E\-S03}!client.hpp@{client.\-hpp}}
+\subsubsection[{R\-E\-S03}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S03~0b00010000}}\label{client_8hpp_aae884d30c0d70c6900e152fa2128aa09}
+
+
+Definition at line 28 of file client.\-hpp.
+
+\hypertarget{client_8hpp_ae38d0ccc9f453cea96fb7535b2a65440}{\index{client.\-hpp@{client.\-hpp}!R\-E\-S04@{R\-E\-S04}}
+\index{R\-E\-S04@{R\-E\-S04}!client.hpp@{client.\-hpp}}
+\subsubsection[{R\-E\-S04}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S04~0b00100000}}\label{client_8hpp_ae38d0ccc9f453cea96fb7535b2a65440}
+
+
+Definition at line 29 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a3783c8ee0abe77aec5a1e4116a68a456}{\index{client.\-hpp@{client.\-hpp}!R\-E\-S\-\_\-\-I\-N\-D\-E\-X@{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}}
+\index{R\-E\-S\-\_\-\-I\-N\-D\-E\-X@{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}!client.hpp@{client.\-hpp}}
+\subsubsection[{R\-E\-S\-\_\-\-I\-N\-D\-E\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-S\-\_\-\-I\-N\-D\-E\-X~2}}\label{client_8hpp_a3783c8ee0abe77aec5a1e4116a68a456}
+
+
+Definition at line 32 of file client.\-hpp.
+
+\hypertarget{client_8hpp_aa6cecb8c404241c624e83aee8a3979d2}{\index{client.\-hpp@{client.\-hpp}!S\-E\-R\-V\-E\-R\-\_\-\-A\-D\-D\-R\-E\-S\-S@{S\-E\-R\-V\-E\-R\-\_\-\-A\-D\-D\-R\-E\-S\-S}}
+\index{S\-E\-R\-V\-E\-R\-\_\-\-A\-D\-D\-R\-E\-S\-S@{S\-E\-R\-V\-E\-R\-\_\-\-A\-D\-D\-R\-E\-S\-S}!client.hpp@{client.\-hpp}}
+\subsubsection[{S\-E\-R\-V\-E\-R\-\_\-\-A\-D\-D\-R\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-R\-V\-E\-R\-\_\-\-A\-D\-D\-R\-E\-S\-S~\char`\"{}192.\-168.\-7.\-2\char`\"{}}}\label{client_8hpp_aa6cecb8c404241c624e83aee8a3979d2}
+
+
+Definition at line 23 of file client.\-hpp.
+
+\hypertarget{client_8hpp_ae6010d5faf8819286fbf4b31756450c4}{\index{client.\-hpp@{client.\-hpp}!T\-E\-X\-T\-\_\-\-H@{T\-E\-X\-T\-\_\-\-H}}
+\index{T\-E\-X\-T\-\_\-\-H@{T\-E\-X\-T\-\_\-\-H}!client.hpp@{client.\-hpp}}
+\subsubsection[{T\-E\-X\-T\-\_\-\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-X\-T\-\_\-\-H~32}}\label{client_8hpp_ae6010d5faf8819286fbf4b31756450c4}
+
+
+Definition at line 48 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a5a98a53af85f942bbd4af23c761c7f99}{\index{client.\-hpp@{client.\-hpp}!T\-E\-X\-T\-\_\-\-W@{T\-E\-X\-T\-\_\-\-W}}
+\index{T\-E\-X\-T\-\_\-\-W@{T\-E\-X\-T\-\_\-\-W}!client.hpp@{client.\-hpp}}
+\subsubsection[{T\-E\-X\-T\-\_\-\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-X\-T\-\_\-\-W~200}}\label{client_8hpp_a5a98a53af85f942bbd4af23c761c7f99}
+
+
+Definition at line 49 of file client.\-hpp.
+
+\hypertarget{client_8hpp_ac1ae4add974b9cfc6b5aaf8a578f01ab}{\index{client.\-hpp@{client.\-hpp}!U\-N\-K\-N\-O\-W\-N@{U\-N\-K\-N\-O\-W\-N}}
+\index{U\-N\-K\-N\-O\-W\-N@{U\-N\-K\-N\-O\-W\-N}!client.hpp@{client.\-hpp}}
+\subsubsection[{U\-N\-K\-N\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-N\-K\-N\-O\-W\-N~0b00100000}}\label{client_8hpp_ac1ae4add974b9cfc6b5aaf8a578f01ab}
+
+
+Definition at line 39 of file client.\-hpp.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{client_8hpp_a1cb2db748f2655bceab4f4958cfc6d85}{\index{client.\-hpp@{client.\-hpp}!ctr\-Menu@{ctr\-Menu}}
+\index{ctr\-Menu@{ctr\-Menu}!client.hpp@{client.\-hpp}}
+\subsubsection[{ctr\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void ctr\-Menu (
+\begin{DoxyParamCaption}
+\item[{int}]{event, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{flags, }
+\item[{void $\ast$}]{userdata}
+\end{DoxyParamCaption}
+)}}\label{client_8hpp_a1cb2db748f2655bceab4f4958cfc6d85}
+
+
+Handle mouse events in the menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The type of mouse event. \\
+\hline
+{\em x} & The x-\/coordinate of the mouse event. \\
+\hline
+{\em y} & The y-\/coordinate of the mouse event. \\
+\hline
+{\em flags} & Additional flags for the mouse event. \\
+\hline
+{\em userdata} & Additional user data.\\
+\hline
+\end{DoxyParams}
+Handle mouse events in the menu.
+
+This function handles mouse events in the menu, such as button clicks.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The type of mouse event. \\
+\hline
+{\em x} & The x-\/coordinate of the mouse position. \\
+\hline
+{\em y} & The y-\/coordinate of the mouse position. \\
+\hline
+{\em flags} & Additional flags. \\
+\hline
+{\em userdata} & Additional user data (unused in this case). \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file client.\-cpp.
+
+\hypertarget{client_8hpp_a49d307938f0a43f8dfb95c5a1ce082d9}{\index{client.\-hpp@{client.\-hpp}!fen\-Menu@{fen\-Menu}}
+\index{fen\-Menu@{fen\-Menu}!client.hpp@{client.\-hpp}}
+\subsubsection[{fen\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void fen\-Menu (
+\begin{DoxyParamCaption}
+\item[{Mat \&}]{menu\-Image}
+\end{DoxyParamCaption}
+)}}\label{client_8hpp_a49d307938f0a43f8dfb95c5a1ce082d9}
+
+
+Display the menu on the provided image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu\-Image} & The image where the menu will be displayed.\\
+\hline
+\end{DoxyParams}
+Display the menu on the provided image.
+
+This function displays the menu on the provided image.
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu\-Image} & The image to display the menu on. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 126 of file client.\-cpp.
+
+\hypertarget{client_8hpp_af1032d0222ef4733659224a82a900656}{\index{client.\-hpp@{client.\-hpp}!get\-Mode\-Arr@{get\-Mode\-Arr}}
+\index{get\-Mode\-Arr@{get\-Mode\-Arr}!client.hpp@{client.\-hpp}}
+\subsubsection[{get\-Mode\-Arr}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t get\-Mode\-Arr (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{index}
+\end{DoxyParamCaption}
+)}}\label{client_8hpp_af1032d0222ef4733659224a82a900656}
+
+
+Get the binary representation of a specific mode index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Binary representation of the mode index. 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a418ea7e8b06b8c6dbcaecdc151ec03a5}{\index{client.\-hpp@{client.\-hpp}!get\-Res\-Arr@{get\-Res\-Arr}}
+\index{get\-Res\-Arr@{get\-Res\-Arr}!client.hpp@{client.\-hpp}}
+\subsubsection[{get\-Res\-Arr}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t get\-Res\-Arr (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{index}
+\end{DoxyParamCaption}
+)}}\label{client_8hpp_a418ea7e8b06b8c6dbcaecdc151ec03a5}
+
+
+Get the binary representation of a specific resolution index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The index of the resolution. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Binary representation of the resolution index. 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a54c6fa8dec0cf15e11f9c1f7851ce888}{\index{client.\-hpp@{client.\-hpp}!Learn\-Face@{Learn\-Face}}
+\index{Learn\-Face@{Learn\-Face}!client.hpp@{client.\-hpp}}
+\subsubsection[{Learn\-Face}]{\setlength{\rightskip}{0pt plus 5cm}void Learn\-Face (
+\begin{DoxyParamCaption}
+\item[{Mat $\ast$}]{frame, }
+\item[{Cascade\-Classifier $\ast$}]{face\-\_\-cascade}
+\end{DoxyParamCaption}
+)}}\label{client_8hpp_a54c6fa8dec0cf15e11f9c1f7851ce888}
+
+
+Learn a face from the provided image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & The image frame. \\
+\hline
+{\em face\-\_\-cascade} & The cascade classifier for face detection. \\
+\hline
+\end{DoxyParams}
+\hypertarget{client_8hpp_a60e9e8ec39ad883790b642db468f1466}{\index{client.\-hpp@{client.\-hpp}!save\-Image@{save\-Image}}
+\index{save\-Image@{save\-Image}!client.hpp@{client.\-hpp}}
+\subsubsection[{save\-Image}]{\setlength{\rightskip}{0pt plus 5cm}void save\-Image (
+\begin{DoxyParamCaption}
+\item[{int}]{frame\-\_\-number, }
+\item[{Mat $\ast$}]{frame, }
+\item[{Cascade\-Classifier $\ast$}]{face\-\_\-cascade}
+\end{DoxyParamCaption}
+)}}\label{client_8hpp_a60e9e8ec39ad883790b642db468f1466}
+
+
+Save an image to disk. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame\-\_\-number} & The frame number. \\
+\hline
+{\em frame} & The image frame. \\
+\hline
+{\em face\-\_\-cascade} & The cascade classifier for face detection. \\
+\hline
+\end{DoxyParams}
+\hypertarget{client_8hpp_a427ddd9f7dddcaf4466a77bf8742ff84}{\index{client.\-hpp@{client.\-hpp}!setctr\-Menu@{setctr\-Menu}}
+\index{setctr\-Menu@{setctr\-Menu}!client.hpp@{client.\-hpp}}
+\subsubsection[{setctr\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void setctr\-Menu (
+\begin{DoxyParamCaption}
+\item[{Mat \&}]{menu\-Image}
+\end{DoxyParamCaption}
+)}}\label{client_8hpp_a427ddd9f7dddcaf4466a77bf8742ff84}
+
+
+Set up the mouse event handling for the menu image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em menu\-Image} & The image where the menu is displayed. \\
+\hline
+\end{DoxyParams}
+\hypertarget{client_8hpp_af3e8abec4d2e7113bca228199a73bbb7}{\index{client.\-hpp@{client.\-hpp}!Socket\-Connect@{Socket\-Connect}}
+\index{Socket\-Connect@{Socket\-Connect}!client.hpp@{client.\-hpp}}
+\subsubsection[{Socket\-Connect}]{\setlength{\rightskip}{0pt plus 5cm}int Socket\-Connect (
+\begin{DoxyParamCaption}
+\item[{int}]{socket, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}\label{client_8hpp_af3e8abec4d2e7113bca228199a73bbb7}
+
+
+Connect to a socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & The socket to connect. \\
+\hline
+{\em port} & Port number for connection. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error.
+\end{DoxyReturn}
+This function creates and connects to a socket.
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & The socket file descriptor. \\
+\hline
+{\em port} & The port number to connect to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 151 of file client.\-cpp.
+
+\hypertarget{client_8hpp_a55f9d2f5bcdc14b9506e7616d270266b}{\index{client.\-hpp@{client.\-hpp}!Socket\-Create@{Socket\-Create}}
+\index{Socket\-Create@{Socket\-Create}!client.hpp@{client.\-hpp}}
+\subsubsection[{Socket\-Create}]{\setlength{\rightskip}{0pt plus 5cm}short Socket\-Create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{client_8hpp_a55f9d2f5bcdc14b9506e7616d270266b}
+
+
+Create a socket. 
+
+\begin{DoxyReturn}{Returns}
+The created socket. 
+\end{DoxyReturn}
+
+
+Definition at line 116 of file client.\-hpp.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{client_8hpp_ab9a202aa0c50a3e2728fbf0238c6e7bb}{\index{client.\-hpp@{client.\-hpp}!C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S@{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S}}
+\index{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S@{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S}!client.hpp@{client.\-hpp}}
+\subsubsection[{C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Resolution} C\-A\-M\-E\-R\-A\-\_\-\-R\-E\-S\-O\-L\-U\-T\-I\-O\-N\-S\mbox{[}$\,$\mbox{]}}}\label{client_8hpp_ab9a202aa0c50a3e2728fbf0238c6e7bb}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    \{160, 120\},
+    \{320, 240\},
+    \{800, 600\},
+    \{1280, 720\}
+\}
+\end{DoxyCode}
+
+
+Definition at line 79 of file client.\-hpp.
+
+\hypertarget{client_8hpp_a0b49557e01665bf5143bcd096df8159d}{\index{client.\-hpp@{client.\-hpp}!frame\-\_\-number@{frame\-\_\-number}}
+\index{frame\-\_\-number@{frame\-\_\-number}!client.hpp@{client.\-hpp}}
+\subsubsection[{frame\-\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}int frame\-\_\-number}}\label{client_8hpp_a0b49557e01665bf5143bcd096df8159d}
+
+
+Definition at line 52 of file client.\-cpp.
+
+\hypertarget{client_8hpp_ab89f2a7158448052ac9a16fda411ea4b}{\index{client.\-hpp@{client.\-hpp}!M\-O\-D\-E\-\_\-\-S\-E\-L\-E\-C\-T@{M\-O\-D\-E\-\_\-\-S\-E\-L\-E\-C\-T}}
+\index{M\-O\-D\-E\-\_\-\-S\-E\-L\-E\-C\-T@{M\-O\-D\-E\-\_\-\-S\-E\-L\-E\-C\-T}!client.hpp@{client.\-hpp}}
+\subsubsection[{M\-O\-D\-E\-\_\-\-S\-E\-L\-E\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}M\-O\-D\-E\-\_\-\-S\-E\-L\-E\-C\-T}}\label{client_8hpp_ab89f2a7158448052ac9a16fda411ea4b}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    1,2
+\}
+\end{DoxyCode}
+
+
+Array representing available modes. 
+
+
+
+Definition at line 89 of file client.\-hpp.
+

@@ -1,0 +1,21 @@
+{
+    "ODROIDC2": {
+        /* Target Device Settings */
+        "TARGET_IP":"192.168.7.2",
+
+        /* Target Port Settings */
+        "TARGET_PORT":"3000",
+
+        /* Project Settings */
+        "PROGRAM":"server"
+    },
+    "files.associations": {
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "regex": "cpp",
+        "tuple": "cpp",
+        "string": "cpp",
+        "thread": "cpp"
+    }
+}
+
